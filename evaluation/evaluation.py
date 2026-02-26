@@ -37,7 +37,7 @@ class ExperimentRunner:
             judge_text = debate_res['judgment']['text']
             judge_ans = self.orchestrator.judge.extract_answer(judge_text)
             
-            # Jury Panel Result (Bonus)
+            # Jury Panel Result
             jury_ans = None
             disagreement = 0
             if include_jury:

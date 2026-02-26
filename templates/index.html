@@ -28,7 +28,7 @@
             <textarea id="question" rows="3" placeholder="Enter a challenging reasoning question..."></textarea>
             <div style="margin-bottom: 10px;">
                 <label>
-                    <input type="checkbox" id="useJury"> Use Multi-Agent Jury Panel (Bonus)
+                    <input type="checkbox" id="useJury"> Use Multi-Agent Jury Panel
                 </label>
             </div>
             <button id="runBtn">Launch Debate</button>
@@ -76,7 +76,7 @@
                 if (data.jury_result) {
                     html += `
                         <div class="jury">
-                            <h2>Jury Panel Verdict (Bonus)</h2>
+                            <h2>Jury Panel Verdict</h2>
                             <p><strong>Final Decision:</strong> ${data.jury_result.majority_vote}</p>
                             <p><strong>Votes:</strong> Yes: ${data.jury_result.votes.Yes}, No: ${data.jury_result.votes.No}</p>
                             <div class="response">${data.jury_result.final_verdicts.join('\n\n---\n\n')}</div>

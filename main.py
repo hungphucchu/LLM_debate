@@ -11,7 +11,7 @@ def main():
     parser.add_argument(
         "--includeJury", 
         action="store_true", 
-        help="Include the Multi-Agent Jury Panel (Bonus) in the experiments"
+        help="Include the Multi-Agent Jury Panel in the experiments"
     )
     args = parser.parse_args()
 
