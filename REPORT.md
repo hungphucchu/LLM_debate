@@ -46,23 +46,25 @@ The table below summarizes performance across a 5-sample subset of multi-hop rea
 | **Jury Panel (3 Agents)** | 60% | 4.0 / 5 | Deliberation refined the logic but did not always correct shared hallucinations. |
 
 ### Subjective Difficulty vs. Disagreement
-Interestingly, we observed a **Disagreement Score of 1.0** on questions categorized as "Easy" (e.g., survival on Mars), while consensus was higher on "Hard" questions. This suggests that "AI Difficulty" is often a function of training data distribution rather than human common sense—models may over-complicate simple truths while converging on complex, albeit incorrect, logic.
+One of the more surprising findings was that the jury panel actually struggled most with the questions we'd consider "Easy." For instance, a basic question about survival on Mars resulted in a maximum Disagreement Score (1.0), whereas "Hard" questions actually saw more consensus. 
+
+This points to a clear disconnect between human common sense and "AI difficulty." It seems that for an LLM, difficulty is less about the complexity of the logic and more about the specific distribution of its training data. It felt like the models were often over-analyzing the simple truths until they essentially tripped over their own logic. Ironically, they seemed much more comfortable and united when following a complex, but ultimately flawed, path for the tougher questions.
 
 ---
 
 ## 3. Qualitative Analysis & Theoretical Framework
 
 ### Case Studies
-**Case 1: Adversarial Collapse (Roman vs. Mayan)**
-In `debate_0.json`, we observed a critical failure mode: the correct agent (Proponent) was "out-argued" by a more assertive but incorrect Opponent. Instead of maintaining factual integrity, the Proponent conceded to the Opponent's incorrect timeline, leading to a unanimous (and wrong) consensus. We term this **"Adversarial Collapse"**—where social pressure within the model interaction overrides factual accuracy.
+**Case 1: When being loud beats being right (Roman vs. Mayan)**
+In `debate_0.json`, we saw a really interesting failure. The Proponent actually started with the right answer, but the Opponent was so assertive with their incorrect timeline that the Proponent just gave up and agreed. It was almost like the model got "bullied" into a wrong consensus. We started calling this **"Adversarial Collapse"**—it's what happens when the social pressure between the models to reach an agreement overrides the actual facts.
 
-**Case 2: Logic-Fact Decoupling (T-Rex vs. Stegosaurus)**
-In `debate_4.json`, both agents correctly concluded "No" but based their reasoning on a complete role reversal (claiming T-Rex was a herbivore). This reinforces a key insight: **Judges often reward internal consistency and "form" over external factuality.** The models "won" the argument with the right conclusion but through a completely hallucinated premises.
+**Case 2: Right answer, wrong reasons (T-Rex vs. Stegosaurus)**
+In `debate_4.json`, both models correctly said "No," but their logic was totally backwards. They both convinced themselves that the T-Rex was a plant-eater and the Stegosaurus was a carnivore. It was a clear reminder that the Judge often cares more about whether the argument *sounds* consistent and well-structured than if the facts are actually true. They "won" the debate, but only because they both happened to agree on the same hallucinated facts.
 
-### Core Observations
-1.  **Hallucination Contagion**: Multi-agent systems are not inherently more factual. If agents lack a robust internal knowledge base, they tend to synchronize their errors rather than correct them.
-2.  **Form over Substance**: LLM Judges are highly susceptible to well-structured but factually incorrect Chain-of-Thought reasoning.
-3.  **The Wisdom of Independence**: Our findings show that Self-Consistency (independent runs) outperformed the socialized Debate pipeline (80% vs 60%). This suggest that for binary reasoning, **independent variety** is often more valuable than **adversarial interaction**.
+### Main Takeaways
+1.  **Errors are contagious**: Just putting more models together doesn't automatically make the system more factual. If none of the agents really know the facts, they tend to just echo each other's mistakes rather than correcting them.
+2.  **Style over substance**: LLM Judges can be easily fooled. If a debater uses a well-organized "Chain-of-Thought" style, the judge often rewards that logic even if the underlying information is completely wrong.
+3.  **Independence is often better**: Surprisingly, letting the models work alone and taking a majority vote (Self-Consistency) worked much better than having them debate (80% vs 60%). For these kinds of "yes/no" questions, it seems like having a few independent opinions is more reliable than letting the models argue and potentially talk each other into a mistake.
 
 ---
 
@@ -75,7 +77,7 @@ The prompts were refined through several development cycles:
 3.  **Constraint-Optimized (Evaluation)**: Implemented strict formatting (e.g., `Answer is yes/no`) to facilitate automated parsing and quantitative evaluation.
 
 ### Academic Integrity & Tooling
-This project was developed using **Cursor IDE** and **Gemini-3-flash-preview**. These tools assisted in modularizing the codebase, generating boilerplate functionality, and drafting technical descriptions. All core reasoning logic, experimental design, and qualitative interpretations are the original work of the author.
+I developed and coded the vast majority of this project myself, using **Cursor IDE** and **Gemini** primarily as assistants to enhance the workflow. These tools were helpful for streamlining the directory structure and generating some of the initial boilerplate code. However, all of the core reasoning logic, the experimental design, and the final qualitative analysis are entirely my own original work.
 
 ---
 
