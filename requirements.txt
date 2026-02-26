@@ -1,0 +1,10 @@
+openai
+flask
+importlib-metadata
+zipp
+markupsafe
+itsdangerous
+click
+blinker
+werkzeug
+jinja2
