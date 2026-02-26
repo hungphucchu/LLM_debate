@@ -1,120 +1,65 @@
 {
   "question": "Could a T-Rex have seen a stegosaurus in person?",
   "ground_truth": "No",
-  "consensus": null,
+  "consensus": "No",
   "transcript": [
     {
       "round": 0,
       "agent": "Debater A",
       "response": {
-        "text": "<think>\nOkay, so the question is whether a T-Rex could have seen a stegosaurus in person. Let me think about this. First, I need to consider the biology of both animals. T-Rex is a theropod dinosaur, right? And stegosaurus is a large, armored dinosaur. Both are large and have large skulls. \n\nBut wait, how do they compare? The T-Rex is more advanced in terms of size. They can grow larger and have a more powerful build. Stegosauruses are also big, but maybe they are more agile. But when it comes to seeing another dinosaur, like another large creature, does that matter? \n\nI remember that T-Rexes were known to be territorial and could chase large prey, but how does that relate to seeing another dinosaur? Maybe if they could see in low light, but that's not the point here. The question is about seeing in person, so maybe they could have been in the same environment. But is there any evidence that T-Rexes saw stegosaurs in person?\n\nI think that's a stretch. Stegosauruses are found in the same layers as T-Rex fossils, so maybe they were in the same area. But maybe the T-Rex was too small to see stegosaurs? Or maybe they were part of the same ecosystem. \n\nAlternatively, maybe they could have been in a different location. But I'm not sure. The answer might be that it's unlikely because both are large and have similar physical traits, but maybe they could have seen each other. However, I'm not entirely certain. The best answer would be 'yes' if there's any evidence, but since I can't recall specific evidence, I might need to say 'yes' based on general knowledge. \n\nWait, but the user wants a specific answer. The answer should be either 'yes' or 'no'. Based on my reasoning, I think it's 'yes' because T-Rexes and stegosaurs are both large and can see each other, even if they're in different environments. So the answer is yes.\n</think>\n\nAnswer is yes.",
+        "text": "<think>\nOkay, let's tackle this question: Could a T-Rex have seen a stegosaurus in person? The user wants me to argue in favor of a specific answer. First, I need to consider the biology and anatomy of both creatures.\n\nT-Rex is a large, herbivorous dinosaur, right? It's known for its powerful jaws and long neck. Stegosauruses are a type of dinosaur that's often found in the same ecological niche. Stegosauruses have a long, narrow body, which is similar to the T-Rex's features. \n\nNow, the question is about seeing them in person. From what I remember, both dinosaurs are in the same family (Dinosauria), so they share some common features. However, their physical structures differ. Stegosauruses are more streamlined and have a more compact body compared to the T-Rex. That might mean they are more likely to be found in the same environment.\n\nI should also consider the evidence. While there are no direct fossil records of T-Rex and Stegosaurus together, there are other dinosaur species that are in the same ecological niche. For example, the sauropods are large, herbivores that might have coexisted with Stegosauruses. \n\nAnother angle is the movement patterns. Stegosauruses are known to be mobile, moving through different terrains, while T-Rex was more stationary. But I'm not sure if that's a factor here. Maybe they could have moved through different areas, but that's more about their movement than seeing each other in person.\n\nI think the answer is that a T-Rex couldn't see a stegosaurus in person because of their physical differences. They're more likely to be found in the same environment, and their bodies don't support such a direct interaction. So the answer should be 'Answer is no'.\n</think>\n\nAnswer is no.",
         "usage": {
           "prompt_tokens": 100,
-          "completion_tokens": 442,
-          "total_tokens": 542
+          "completion_tokens": 392,
+          "total_tokens": 492
         },
-        "response_time": 0.8681011199951172
+        "response_time": 0.7183189392089844
       }
     },
     {
       "round": 0,
       "agent": "Debater B",
       "response": {
-        "text": "<think>\nOkay, the user is asking if a T-Rex could have seen a stegosaurus in person. Let me think about this. First, I need to consider the biological and ecological facts about T-Rex and stegosaurs.\n\nT-Rex is a large, powerful predator that lived around 100 million years ago, right? They were known for their strength and hunting techniques. Stegosaurosaurs are a group of large, armored reptiles that lived much later. Stegosaurosaurs are more than 100 million years old too, so they are older than T-Rex. So, how long would it take for a T-Rex to have seen a stegosaur?\n\nIf a T-Rex was hunting, they would need to have a way to track down a stegosaur. Stegosaurosaurs were known for their speed and ability to move quickly, which suggests they could outrun predators. But how would a T-Rex catch a stegosaur? They would have to be in a position where they could see and attack. \n\nSteegosaurusosaurs, like stegosaurs, had a wide, flat body and a large head, which might have made them more agile. But T-Rex's body was longer and more muscular. Maybe they could have chased them, but I'm not sure. \n\nAlso, considering the environment, if a stegosaur was in a place where T-Rex could easily see it, like a nearby area or a river. But stegosaurs were also known to be in water, so maybe they could have been near water sources. \n\nAnother angle: T-Rex might have used tracks or other signs to find a stegosaur. But stegosaurs are more likely to be found in the sand or on land. However, some stegosaurs, like the famous one with the \"Big Five,\" might have been in a place where T-Rex could have seen them. \n\nWait, but if a stegosaur was in the same area as a T-Rex, maybe they could have seen each other. But since stegosaurs are older, T-Rex might not have seen them until after they were older. \n\nSo, putting it all together: T-Rex was around 100 million years old, while stegosaurs are even older. If a stegosaur was in a place where a T-Rex could have encountered them, maybe.",
+        "text": "<think>\nOkay, so the user is asking whether a T-Rex could have seen a stegosaurus in person. Let me think about this. First, I need to consider the facts about T-Rex and stegosaurs.\n\nT-Rex is a dinosaur, and stegosaurs are also a group of dinosaurs. The T-Rex is known for being very large and fast, while stegosaurs are known for their spiny armor and long legs. The T-Rex was originally found in the Late Cretaceous, which is around 100 million years ago. The stegosaurs lived during the same time period, so they would have been present in the same region. \n\nBut wait, there's a possibility that the T-Rex and stegosaurs coexisted, so maybe they could have interacted. However, the question is about seeing them in person. So, how would that happen? The T-Rex was a carnivore, so it would have to have a way to observe stegosaurs. Since stegosaurs were large and had a long body, maybe they could have had some kind of tracking mechanism, like using their sense of smell or eyes. \n\nBut I should also consider the fact that the T-Rex is more likely to have been a predator, so it might not have the same ability as a prey to see or hear stegosaurs. Also, the stegosaurs might have been more active in certain areas, so maybe the T-Rex could have been in the same environment. \n\nWait, but the stegosaurs are known to have a long, spiny shell. If the T-Rex was in the same area, maybe they could have had some kind of interaction. However, the answer might be no because the T-Rex was not capable of seeing stegosaurs in person. \n\nSo, putting it all together, the answer should be 'Answer is no' because the T-Rex couldn't have seen a stegosaurus in person.\n</think>\n\nAnswer is no.",
         "usage": {
           "prompt_tokens": 111,
-          "completion_tokens": 500,
-          "total_tokens": 611
+          "completion_tokens": 417,
+          "total_tokens": 528
         },
-        "response_time": 0.9096148014068604
-      }
-    },
-    {
-      "round": 1,
-      "agent": "Debater A",
-      "response": {
-        "text": "<think>\nOkay, let's break this down. The user is asking if a T-Rex could have seen a stegosaurus in person. \n\nFirst, I need to recall the biological and evolutionary facts. T-Rex is a large, powerful theropod dinosaur, and stegosaurus is a large, armored sauropod. Both are large in size and have large skulls, which might make them visually similar. However, their physical traits suggest they could have different adaptations. \n\nFrom the context, it's mentioned that T-Rex fossils are found in layers similar to stegosaurus, so they might have been in the same area. But is that enough to conclude they could have seen each other? I think the answer hinges on whether T-Rexes and stegosaurs were in the same environment where they could interact. \n\nI remember that stegosaurs were known for their speed and agility, which might have made them more likely to be chased. T-Rexes, being more powerful, might have had a better chance to attack. But the question is about seeing, not attacking. If they were in the same environment, maybe they could have had a chance to see each other. \n\nAnother angle: T-Rexes could have used tracks or other signs to find a stegosaur. Stegosauruses were known for their ability to move quickly, which might have made them more likely to be followed. But T-Rexes, with their larger size, might have been able to track them. \n\nI think the key point here is that both are large, so they could have seen each other. Even if they're older, they would have had opportunities to interact. Therefore, the answer should be yes.\n</think>\n\nAnswer is yes.",
-        "usage": {
-          "prompt_tokens": 1083,
-          "completion_tokens": 360,
-          "total_tokens": 1443
-        },
-        "response_time": 0.7042169570922852
-      }
-    },
-    {
-      "round": 1,
-      "agent": "Debater B",
-      "response": {
-        "text": "<think>\nOkay, so the question is whether a T-Rex could have seen a stegosaurus in person. Let me start by recalling the facts about T-Rex and stegosaurus.\n\nT-Rex is a large theropod dinosaur that lived around 100 million years ago. Stegosaurosaurs, on the other hand, are a group of large, armored sauropods that are even older. They are known for their speed, agility, and ability to move quickly. \n\nNow, how do these two dinosaurs interact? Both are large and powerful, which might suggest they could have seen each other. However, there's a possibility of a time gap. Stegosaurosaurs are older, so if a T-Rex was to encounter them, they might not have had the same time to see each other. \n\nAnother point: Stegosaurosaurs are known to live in water and have a wide body, which might mean they were in different environments. A T-Rex, being a terrestrial predator, might have been in a place where they could interact with stegosaurs. But is there any evidence that T-Rexes saw stegosaurs in person? \n\nI think the answer hinges on whether T-Rexes and stegosaurs were in the same environment where they could interact. Since both are large and powerful, they might have had opportunities to see each other. Even if they're older, they would have had chances to interact. \n\nTherefore, the answer should be yes, based on these considerations.",
-        "usage": {
-          "prompt_tokens": 1472,
-          "completion_tokens": 313,
-          "total_tokens": 1785
-        },
-        "response_time": 0.6851980686187744
-      }
-    },
-    {
-      "round": 2,
-      "agent": "Debater A",
-      "response": {
-        "text": "<think>\nOkay, so the user is asking if a T-Rex could have seen a stegosaurus in person. Let me start by recalling the facts. T-Rex is a large theropod dinosaur, and stegosaurus is a sauropod. Both are large, so maybe they could have seen each other. But wait, how old are they? T-Rex is around 100 million years old, while stegosaurus are even older. So if a T-Rex saw a stegosaur, it would have to have been in a place where they could interact. \n\nBut maybe the answer is no because they're too different in size. T-Rex is bigger, and stegosaurus are even bigger. However, the question is about seeing each other, not attacking. So even if they're large, if they were in the same environment, they might have had a chance to see. \n\nI remember that stegosaurs are known for their speed and agility, which might have made them more likely to be chased. T-Rexes, being more powerful, might have had a better chance to attack. But seeing each other is a different interaction. \n\nSo, considering both their physical traits and the possibility of being in the same environment, I think the answer is yes. Therefore, the answer should be 'Answer is yes'.\n",
-        "usage": {
-          "prompt_tokens": 1778,
-          "completion_tokens": 281,
-          "total_tokens": 2059
-        },
-        "response_time": 0.6503560543060303
-      }
-    },
-    {
-      "round": 2,
-      "agent": "Debater B",
-      "response": {
-        "text": "<think>\nOkay, let me try to figure this out. The question is whether a T-Rex could have seen a stegosaurus in person. \n\nFirst, I need to recall the biology of both animals. T-Rex is a theropod, which means it's a predator. Stegosaur is a sauropod, which is a large, armored dinosaur. Both are large, so maybe they could have seen each other. But wait, how old are they? T-Rex is around 100 million years old, and stegosaurus are even older. So if a T-Rex saw a stegosaur, it would have to be in a place where they could interact. \n\nBut wait, there's a possibility that they were in different environments. Stegosauruses are known to live in water, so maybe they were in a place where a T-Rex could see them. However, T-Rexes are terrestrial predators, so they would need to be in a location where they could see stegosaurs. \n\nAnother angle: Stegosauruses are known for their speed and agility, which might have made them more likely to be chased. T-Rexes, being more powerful, might have had a better chance to attack. But seeing each other is a different interaction. \n\nI think the answer is yes. Even though they're older, they would have had chances to interact. Therefore, the answer is yes.\n",
-        "usage": {
-          "prompt_tokens": 2089,
-          "completion_tokens": 298,
-          "total_tokens": 2387
-        },
-        "response_time": 0.6075780391693115
-      }
-    },
-    {
-      "round": 3,
-      "agent": "Debater A",
-      "response": {
-        "text": "<think>\nOkay, so the question is whether a T-Rex could have seen a stegosaurus in person. Let me start by recalling the facts about these two dinosaurs.\n\nFirst, T-Rex is a theropod, a type of dinosaur that's known for being powerful and having large, powerful jaws. Stegosaur is a sauropod, which is a large, armored dinosaur. Both are large in size, so maybe they could have seen each other. But wait, how old are they? T-Rex is around 100 million years old, and stegosaurus are even older. So if a T-Rex saw a stegosaur, it would have to be in a place where they could interact. \n\nBut is there any evidence that T-Rexes saw stegosaurs in person? I think that's a stretch. Stegosauruses are known to live in water, so maybe they were in different environments. A T-Rex, being terrestrial, might have been in a place where they could see stegosaurs. However, I'm not sure. \n\nAnother angle: Stegosauruses are known for their speed and agility, which might have made them more likely to be chased. T-Rexes, being more powerful, might have had a better chance to attack. But seeing each other is a different interaction. \n\nSo, considering both their physical traits and the possibility of being in the same environment, I think the answer is yes. Therefore, the answer is yes.\n</think>\n\nAnswer is yes.",
-        "usage": {
-          "prompt_tokens": 2374,
-          "completion_tokens": 317,
-          "total_tokens": 2691
-        },
-        "response_time": 0.692662239074707
-      }
-    },
-    {
-      "round": 3,
-      "agent": "Debater B",
-      "response": {
-        "text": "<think>\nOkay, let's tackle this question. The user is asking if a T-Rex could have seen a stegosaurus in person. \n\nFirst, I need to recall the biology of both dinosaurs. T-Rex is a large, powerful theropod, while stegosaurus is a sauropod. Both are large, so maybe they could have seen each other. But wait, how old are they? T-Rex is around 100 million years old, and stegosaurus are even older. So if a T-Rex saw a stegosaur, they would have to be in a place where they could interact. \n\nBut there's a possibility of a time gap. Stegosauruses are older, so if a T-Rex saw a stegosaur, it would have to be in a place where they could interact. However, I'm not sure if they were in the same environment. Also, I remember that stegosaurs are known for their speed and agility, which might have made them more likely to be chased. T-Rexes, being more powerful, might have had a better chance to attack. But seeing each other is a different interaction. \n\nI think the answer is yes. Even though they're older, they would have had opportunities to interact. Therefore, the answer is yes.",
-        "usage": {
-          "prompt_tokens": 2720,
-          "completion_tokens": 275,
-          "total_tokens": 2995
-        },
-        "response_time": 0.5766928195953369
+        "response_time": 0.8044002056121826
       }
     }
   ],
   "judgment": {
-    "text": "<think>\nOkay, let me go through this again. The user is asking if a T-Rex could have seen a stegosaurus in person. \n\nFirst, I need to compare their biological traits. T-Rex is a large, powerful theropod, and stegosaurus is a sauropod. Both are large, so maybe they could have seen each other. But wait, how old are they? T-Rex is around 100 million years old, and stegosaurus are even older. So if a T-Rex saw a stegosaur, they would have to be in a place where they could interact. \n\nBut I need to think about the environment. Stegosauruses are known to live in water, so maybe they were in different environments. A T-Rex, being terrestrial, might have been in a place where they could see stegosaurs. However, I'm not sure. \n\nAnother angle: Stegosauruses are known for their speed and agility, which might have made them more likely to be chased. T-Rexes, being more powerful, might have had a better chance to attack. But seeing each other is a different interaction. \n\nI think the answer is yes. Even though they're older, they would have had chances to interact. So the answer is yes.",
+    "text": "<think>\nOkay, so the user is asking if a T-Rex could have seen a stegosaurus in person. The answer given by the Ground Truth is \"No.\" I need to evaluate this.\n\nFirst, I'll recall the key points about T-Rex and stegosaurs. T-Rex is a large, herbivorous dinosaur, and stegosaurs are carnivorous. They share a common family (Dinosauria), which suggests they might have been in similar ecological niches. However, their physical structures differ. Stegosauruses have a long, narrow body, while T-Rex is more streamlined. That could mean they might not have the same body proportions to interact directly.\n\nNext, I need to consider evidence. While there's no direct fossil record of both dinosaurs together, other large herbivores like sauropods might have coexisted. The T-Rex's large size might have allowed it to be found in similar environments. But the question is about seeing each other in person. The T-Rex's sensory capabilities\u2014like eyes or hearing\u2014might not have the same range as a stegosaur's. Stegosauruses also have a spiny shell, which could be a defense mechanism, not a means of observation.\n\nAnother angle: T-Rex's diet is herbivorous, so it's more likely to have been a predator, not a prey. That would mean it couldn't have observed stegosaurs. Stegosauruses, being carnivores, might have been more active in certain areas, but again, the T-Rex's ability to see would be limited.\n\nThe strongest argument is that T-Rex couldn't see a stegosaurus in person due to their physical differences and ecological roles. The Ground Truth answer is \"No,\" which aligns with this analysis.\n\nConfidence Score: 4/5 (Strong support for the answer given by Ground Truth).",
     "usage": {
-      "prompt_tokens": 3009,
-      "completion_tokens": 274,
-      "total_tokens": 3283
+      "prompt_tokens": 969,
+      "completion_tokens": 391,
+      "total_tokens": 1360
     },
-    "response_time": 0.6010518074035645
+    "response_time": 1.0266952514648438
+  },
+  "jury_result": {
+    "initial_verdicts": [
+      "<think>\nOkay, so the user wants me to argue in favor of the answer \"could a T-Rex have seen a stegosaurus in person?\" Let's break it down.\n\nFirst, I need to consider the biology of both animals. T-Rex is a large, herbivorous dinosaur with a strong jaw and long neck. Stegosauruses, on the other hand, are a type of dinosaur known for their spiny shells and long legs. They share some evolutionary traits, like being part of the same family (Dinosauria), but their physical structures differ significantly.\n\nNow, the question is about seeing them in person. Since T-Rex is a carnivore, it would have to have a way to observe stegosaurs. Stegosauruses are known for their spiny armor and large size, which might suggest they were more active in certain areas. However, T-Rex's physical features and ecological niche make it unlikely to have had a direct interaction with a stegosaurus. They might have moved through the same environment, but the lack of evidence for a direct observation makes it less likely.\n\nAdditionally, the T-Rex's diet and movement patterns don't align well with stegosaur behavior. Stegosauruses are often found in different terrains, so they might not have been in the same area as T-Rex. Therefore, the answer should be that a T-Rex couldn't have seen a stegosaurus in person. \n\nI think that's solid reasoning. The answer is no.\n",
+      "<think>\nOkay, so the user is asking whether a T-Rex could have seen a stegosaurus in person. Let me start by recalling what I know about the T-Rex and stegosaurs. \n\nThe T-Rex is a large, herbivorous dinosaur that's known for its powerful jaws and long neck. Stegosauruses, on the other hand, are a group of large, armored reptiles that are often found in the same ecological niche. They have a long, narrow body and a spiny shell, which is similar to the T-Rex's features. \n\nNow, the key here is whether the T-Rex could have seen a stegosaurus. From what I remember, both dinosaurs are in the same family (Dinosauria), so they share some traits. However, their physical structures differ. Stegosauruses have a more streamlined body, which might make them more mobile, while the T-Rex has a more robust build. \n\nI should also consider the movement patterns. Stegosauruses are known for their ability to move through different terrains, while T-Rex was more stationary. But does that mean they couldn't see each other? Maybe they could have moved through different areas, but that's more about their movement rather than seeing each other in person. \n\nAnother point is the evidence. While there are no direct fossil records of T-Rex and stegosaur together, there are other dinosaur species that coexisted. For example, sauropods are large herbivores that might have been in the same environment. \n\nConsidering all these factors, the conclusion is that a T-Rex couldn't have seen a stegosaurus in person. The T-Rex was a carnivore and couldn't have the same ability as a prey to see or hear stegosaurs. Therefore, the answer is 'Answer is no'.\n",
+      "<think>\nOkay, let's break it down. The user is asking whether a T-Rex could have seen a stegosaurus in person. \n\nFirst, I need to consider the biological differences. The T-Rex is a large, herbivorous dinosaur, while the stegosaurus is a carnivorous, armored dinosaur. This difference in diet and behavior suggests that they might have coexisted in the same environment. However, the T-Rex's anatomy and movement patterns might not have allowed it to interact directly with a stegosaurus.\n\nAdditionally, the T-Rex's powerful jaws and long neck could have made it more likely to hunt stegosaurs, but the question is about seeing them. The stegosaurs are known for their spiny shells and long legs, which might have made them more mobile and possibly more visible. However, even with their physical traits, the T-Rex's lack of a visual display mechanism might mean they couldn't see stegosaurs in person.\n\nConsidering all these points, the conclusion is that the T-Rex couldn't have seen a stegosaurus in person. Therefore, the answer is 'Answer is no.'"
+    ],
+    "final_verdicts": [
+      "<think>\nOkay, let's start by recalling the question. The user is asking if a T-Rex could have seen a stegosaurus in person. \n\nFirst, I need to remember the key points about T-Rex and stegosaurus. The T-Rex is a large herbivore with a powerful jaw and a long neck. Stegosauruses, on the other hand, are large, armored dinosaurs with spiny shells and long legs. They share a common ancestor in the Dinosauria family, which includes both.\n\nNow, the challenge is whether the T-Rex could have seen a stegosaurus. From what I know, both species coexisted in the same ecological niche. However, their physical differences make it unlikely that a T-Rex would have a direct interaction with a stegosaurus. The T-Rex is a carnivore, so it would have hunted stegosaurs, but that doesn't mean it could have seen them in person.\n\nAdditionally, the T-Rex's anatomy and movement patterns don't support the idea of seeing stegosaurs. Stegosauruses are more mobile and might have been in different areas, but the T-Rex's lack of visual display mechanisms would prevent direct observation.\n\nI should also consider if there's any evidence of direct interaction. For example, if there were fossil records or remains of both dinosaurs together, that would support the idea. But based on current knowledge, I don't see any such evidence.\n\nTherefore, the conclusion is that a T-Rex couldn't have seen a stegosaurus in person. The answer should be 'Answer is no.'\n</think>\n\nAnswer is no.",
+      "<think>\nOkay, so the user is asking if a T-Rex could have seen a stegosaurus in person. Let me start by recalling what I know about these two dinosaurs. \n\nFirst, T-Rex is a large, herbivorous dinosaur. Stegosauruses, on the other hand, are carnivorous and armored. They share some evolutionary traits, like being part of the same family (Dinosauria), but their physical structures are different. \n\nNow, the key here is whether a T-Rex, being a carnivore, could have seen a stegosaurus. Stegosauruses are known for their spiny shells and long legs, which might suggest they were more active and possibly more visible. However, the T-Rex's anatomy and movement patterns don't align with that. \n\nI should also consider their ecological niches. If T-Rex and stegosaur coexisted, they might have been in the same environment. But the T-Rex's diet and movement would likely not have allowed it to interact directly with a stegosaurus. \n\nI think the answer is that a T-Rex couldn't have seen a stegosaurus in person. The T-Rex is a carnivore, so it would have to have a way to see stegosaurs. Since they don't share the same ability, the answer is no.\n</think>\n\nAnswer is no.",
+      "<think>\nOkay, let's see. The user is asking if a T-Rex could have seen a stegosaurus in person. I need to answer based on the information I have.\n\nFirst, I know that T-Rex is a large herbivore, while stegosaurs are carnivorous. So their diets are different, which might suggest they coexisted. But how does that relate to seeing each other in person?\n\nI remember that both dinosaurs are part of the same family, Dinosauria, but their physical traits are distinct. The T-Rex has a long neck and powerful jaws, which might make it more likely to hunt stegosaurs. However, the question is about seeing them. Stegosauruses are known for their spiny shells and large size, which might make them more visible. But again, the T-Rex's physical features and movement patterns might not allow for direct interaction.\n\nAlso, there's evidence that T-Rex species existed in the same area as stegosaurs. But I need to be careful here. The answer isn't based on direct observation but on their ecological roles. The T-Rex couldn't have seen stegosaurs in person because they were different in their feeding habits and physical attributes.\n\nSo, putting it all together, the answer should be that a T-Rex couldn't have seen a stegosaurus in person. The verdict is 'Answer is no.' That's the conclusion.\n</think>\n\nAnswer is no."
+    ],
+    "extracted_answers": [
+      "No",
+      "No",
+      "No"
+    ],
+    "votes": {
+      "Yes": 0,
+      "No": 3
+    },
+    "majority_vote": "No",
+    "disagreement_score": 0
   }
 }

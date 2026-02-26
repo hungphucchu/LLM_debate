@@ -1,56 +1,75 @@
-# LLM Debate + Judge Pipeline
+# Multi-Agent Adversarial Debate Pipeline
 
-This repository implements a structured multi-agent debate system for complex reasoning tasks, as part of Assignment 2 for the LLM & Agentic Systems course.
+This repository contains the implementation of a structured multi-agent debate framework designed for complex commonsense and temporal reasoning tasks. Developed as part of a graduate-level exploration into LLM reasoning, the system evaluates the impact of adversarial interaction on factual accuracy and logical consistency.
+
+## Overview
+
+The core objective of this project is to benchmark adversarial debate against standard prompting techniques. The system orchestrates a "Trial by Dialectic," where competing agents argue opposing viewpoints while an impartial judge (or multi-agent jury) renders a final verdict based on the quality of the reasoning and evidence presented.
 
 ## System Architecture
 
-The pipeline consists of modular LLM agents that interact via a structured protocol:
-- **Debater A (Proponent)**: Argues in favor of a candidate answer.
-- **Debater B (Opponent)**: Explicitly identifies flaws in Debater A's reasoning, presents counterevidence, and defends its own position.
-- **Judge (Single)**: Observes the transcript and renders a final verdict with Chain-of-Thought (CoT) reasoning.
-- **Jury Panel (Multi-Agent)**: An optional panel of 3+ LLM judges that deliberate (inspired by VERDICT) to provide a more robust majority-voted verdict.
+The pipeline leverages a modular, object-oriented design composed of specialized agents:
 
-## How to Run
+*   **Debater A (Proponent)**: Responsible for establishing and defending the primary thesis.
+*   **Debater B (Opponent)**: Tasked with critical rebuttal, identifying logical inconsistencies in the proponent’s argument, and providing empirical counter-points.
+*   **Adjudicator (Judge)**: Analyzes the full dialectical exchange using Chain-of-Thought (CoT) reasoning to provide a final decision.
+*   **Jury Panel (Extension)**: A three-member judicial panel inspired by the **VERDICT** framework (Kalra et al., 2025), utilizing multi-agent deliberation to reach a robust consensus.
 
-### 1. Prerequisites
-Ensure you have Python 3.9+ and the required packages installed:
+## Getting Started
+
+### Prerequisites
+
+The project requires **Python 3.9+**. Install dependencies via the provided requirements file:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Configuration
-API settings (BASE_URL, API_KEY), hyperparameters (DEBATE_ROUNDS, TEMPERATURE), and prompt templates are located in the `config/` directory.
+### Configuration
 
-### 3. Running Experiments
-To run the full experiment suite (Debate vs. Direct QA vs. Self-Consistency) on a sample dataset:
+System parameters, including API endpoints, model hyperparameters (temperature, max tokens), and role-specific prompt templates, are centralized in the `config/` directory for transparency and ease of experimentation.
+
+### Execution
+
+#### 1. Empirical Benchmarking
+To execute the full benchmarking suite (comparing Debate, Direct QA, and Self-Consistency):
+
 ```bash
 python main.py
 ```
 
-To include the **Multi-Agent Jury Panel (Bonus)** in the experiments:
+To enable the **Multi-Agent Jury Panel** (Bonus feature) in the experimental run:
+
 ```bash
 python main.py --includeJury
 ```
 
-### 4. Running the Web UI
-To launch the interactive debate interface (includes a toggle for the Jury Panel):
+#### 2. Interactive Web Interface
+A Flask-based web application is provided for real-time visualization of the debate process:
+
 ```bash
 python app.py
 ```
-Then navigate to `http://localhost:5000` in your browser.
+Access the interface at `http://localhost:5000`.
 
-## Bonus: Multi-Agent Judge Panel (Jury)
-This repository includes an implementation of a 3-member judicial panel inspired by **VERDICT** (Kalra et al., 2025). 
-- **Deliberation Protocol**: Jurors first render independent verdicts, then review peer reasoning before providing a final deliberated verdict.
-- **Analytics**: The system calculates disagreement scores and correlates them with question difficulty (Easy, Medium, Hard).
-- **Consensus**: The final answer is determined by a deliberated majority vote.
+## Advanced Features: Multi-Agent Jury (VERDICT)
 
-## Project Structure
-- `agents/`: Modular agent classes (`base_agent.py`, `debater_agent.py`, `judge_agent.py`, `jury.py`).
-- `client/`: API client interaction (`api_basics.py`).
-- `config/`: Centralized configuration and prompt templates.
-- `evaluation/`: Benchmarking and baseline logic (`evaluation.py`, `baselines.py`).
-- `orchestrator.py`: Implements the 4-phase debate protocol.
-- `app.py`: Simple Flask web interface for live debates.
-- `logs/`: Contains JSON logs of every debate transcript.
-- `results/`: Contains experiment summaries.
+The system implements a sophisticated judicial deliberation protocol:
+1.  **Independent Assessment**: Each juror renders an initial, blinded verdict.
+2.  **Deliberation**: Jurors review the reasoning of their peers to identify potential biases or overlooked evidence.
+3.  **Final Consensus**: A deliberated majority vote determines the final outcome.
+
+The framework also tracks **Disagreement Scores** to analyze how model consensus correlates with human-perceived question difficulty.
+
+## Repository Structure
+
+```text
+├── agents/          # Modular agent definitions (Base, Debater, Judge, Jury)
+├── client/          # API interaction layer (OpenAI-compatible)
+├── config/          # Prompt templates and system hyperparameters
+├── evaluation/      # Benchmarking logic and baseline implementations
+├── logs/            # Comprehensive JSON transcripts of every debate
+├── results/         # Quantitative summary data
+├── orchestrator.py  # Main 4-phase debate protocol implementation
+└── app.py           # Flask web UI entry point
+```

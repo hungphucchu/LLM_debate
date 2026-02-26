@@ -1,16 +1,16 @@
 {
   "total": 5,
-  "direct_qa_accuracy": 0.6,
-  "self_consistency_accuracy": 0.6,
+  "direct_qa_accuracy": 0.4,
+  "self_consistency_accuracy": 0.8,
   "single_judge_accuracy": 0.6,
-  "jury_panel_accuracy": 0.0,
+  "jury_panel_accuracy": 0.6,
   "analysis": {
     "jury_vs_single": {
-      "jury_improved": 0,
-      "single_better": 3
+      "jury_improved": 1,
+      "single_better": 1
     },
     "disagreement_by_difficulty": {
-      "Easy": 0.0,
+      "Easy": 1.0,
       "Medium": 0.0,
       "Hard": 0.0
     }

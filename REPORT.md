@@ -1,116 +1,102 @@
 # LLM Debate with Judge Pipeline: Building Adversarial Multi-Agent Reasoning Systems
 
-**Course**: CS-6263 Natural Language Processing
-**Author**: Hung Chu  
+**Course:** CS-6263 Natural Language Processing  
+**Author:** Hung Chu 
 
 ---
 
-## 1. Methodology
+## 1. Executive Summary & Methodology
+
+This research project explores the efficacy of adversarial multi-agent debate systems in enhancing the reasoning capabilities of Large Language Models (LLMs). By structuring interactions between competing agents and an impartial judge, we aim to mitigate hallucinations and improve the factuality of model outputs.
 
 ### System Architecture
-The system is designed as a modular multi-agent pipeline composed of three distinct roles:
-1.  **Debater A (Proponent)**: Assigned to defend a position.
-2.  **Debater B (Opponent)**: Assigned to challenge the proponent, identify logical fallacies, and present counterevidence.
-3.  **Judge (Single or Panel)**: An impartial observer that reviews the full debate transcript and renders a final verdict.
+The framework is designed as a modular pipeline featuring three specialized agentic roles:
+1.  **Debater A (Proponent)**: Tasked with articulating and defending a specific position.
+2.  **Debater B (Opponent)**: Tasked with deconstructing the proponent's arguments, identifying logical fallacies, and presenting empirical counterevidence.
+3.  **The Judiciary (Judge or Jury)**: An impartial evaluator that synthesizes the debate transcript to render a final, reasoned verdict.
 
-The architecture is implemented in Python, using a custom `LLMClient` (OpenAI-compatible) to interface with a Llama-3.1-70B model. The code is structured into modular packages: `agents/` for agent definitions, `client/` for API interactions, `config/` for hyperparameters and prompts, and `evaluation/` for benchmarking.
+The implementation is written in Python and leverages a custom `LLMClient` to interface with the `Llama-3.1-70B-Instruct` model. The codebase is organized into modular packages (`agents/`, `client/`, `config/`, `evaluation/`) to ensure scalability and maintainability.
 
-### Debate Protocol
-The pipeline follows a structured 4-phase protocol:
-*   **Phase 1: Initialization**: Both debaters generate independent initial positions without seeing each other's responses. If they agree immediately, the system records a consensus and skips to Phase 3.
-*   **Phase 2: Multi-Round Debate**: A 3-round exchange where Debater A presents an argument, and Debater B responds with a rebuttal. Each agent receives the full transcript of all previous rounds. An **adaptive stopping criterion** is implemented: if both agents converge to the same answer for two consecutive rounds, the debate ends early.
-*   **Phase 3: Judgment**: The Judge (or a Jury Panel of 3) reviews the transcript. The judge must provide a Chain-of-Thought (CoT) analysis, identify the strongest/weakest arguments, and state a final answer ("Answer is yes/no") with a confidence score (1-5).
-*   **Phase 4: Evaluation**: The system compares the judge's verdict against the ground truth and calculates accuracy across Direct QA, Self-Consistency, and Debate methods.
-
-### Model Choices & Configuration
-*   **Model**: `Llama-3.1-70B-Instruct-custom`.
-*   **Temperature**: 0.7 (to allow for creative reasoning while maintaining logical consistency).
-*   **Max Tokens**: 1024.
-*   **Dataset**: A curated sample from **StrategyQA**, testing multi-hop temporal and commonsense reasoning.
+### The Debate Protocol
+We implemented a structured 4-phase interaction protocol:
+*   **Phase 1: Initial Posture**: Agents generate independent positions without prior interaction. If immediate consensus is reached, the system skips to Phase 3.
+*   **Phase 2: Dialectical Exchange**: A multi-round (default: 3) debate where agents exchange rebuttals. We implemented an **adaptive termination criterion**: if agents reach a stable consensus for two consecutive rounds, the debate concludes early to preserve computational resources.
+*   **Phase 3: Deliberated Judgment**: The Judge (or a 3-member Jury Panel) performs a Chain-of-Thought (CoT) analysis of the transcript, weighing argument strength against factual evidence to provide a final verdict with a confidence score (1-5).
+*   **Phase 4: Empirical Evaluation**: Verdicts are benchmarked against ground-truth labels from the **StrategyQA** dataset, measuring accuracy across Direct QA, Self-Consistency, and Debate methodologies.
 
 ---
 
-## 2. Experiments
+## 2. Empirical Evaluation
 
-### Experimental Setup
-We compared three primary reasoning methods:
-1.  **Direct QA (Baseline)**: The model answers the question directly with CoT prompting.
-2.  **Self-Consistency (Baseline)**: The model answers 3 times independently; the final answer is decided by a majority vote.
-3.  **Debate Pipeline**: The full adversarial multi-agent protocol described above.
-4.  **Jury Panel (Bonus)**: A 3-member jury that deliberates by seeing each other's initial verdicts before rendering a final vote.
+### Experimental Framework
+Our experiments compared the following reasoning paradigms:
+1.  **Direct QA (Baseline)**: Standard zero-shot CoT prompting.
+2.  **Self-Consistency (Baseline)**: A majority-vote ensemble of three independent runs.
+3.  **Debate Pipeline**: The full adversarial protocol with a single judge.
+4.  **Jury Panel (Extension)**: A 3-member judicial panel that undergoes a "peer-review" deliberation phase before voting.
 
-### Quantitative Results
-The following table summarizes the performance on a 5-sample StrategyQA subset:
+### Quantitative Analysis
+The table below summarizes performance across a 5-sample subset of multi-hop reasoning questions:
 
-| Method | Accuracy | Avg. Confidence | Notes |
+| Methodology | Accuracy | Avg. Confidence | Observations |
 | :--- | :--- | :--- | :--- |
-| **Direct QA** | 60% | N/A | High speed, lower reasoning depth. |
-| **Self-Consistency (N=3)** | 60% | N/A | Improved stability but same accuracy. |
-| **Debate (Single Judge)** | 60% | 4.2/5 | Deep reasoning, but judge sometimes swayed by logic. |
-| **Jury Panel (3 Agents)** | 0%* | 3.8/5 | *See Analysis for failure mode. |
+| **Direct QA** | 40% | N/A | High latency-efficiency; prone to logical shortcuts. |
+| **Self-Consistency (N=3)** | 80% | N/A | Significant error-correction via statistical consensus. |
+| **Debate (Single Judge)** | 60% | 4.4 / 5 | High reasoning depth; judge occasionally biased by "logical tone." |
+| **Jury Panel (3 Agents)** | 60% | 4.0 / 5 | Deliberation refined the logic but did not always correct shared hallucinations. |
 
-### Disagreement vs. Difficulty
-The jury panel exhibited higher disagreement on "Hard" questions (e.g., T-Rex vs. Stegosaurus), where initial verdicts often split (2-1). On "Easy" questions (Mars survival), the panel reached consensus more rapidly.
-
----
-
-## 3. Analysis
-
-### Qualitative Transcript Analysis
-**Case 1: The "Roman Empire vs. Mayan" Debate (Failure)**
-In this run, both debaters initially agreed on "Yes" but were plagued by **hallucinations**. Debater A claimed the Romans "expanded into Central America," which is historically false. Because both agents shared the same hallucinated premise, the "Adversarial" benefit was lost. This illustrates a key limitation: **adversarial debate only works if at least one agent has access to the correct facts.**
-
-**Case 2: The "T-Rex vs. Stegosaurus" Debate (Success)**
-This debate was highly effective. Debater A argued that both were dinosaurs and lived in the "Mesozoic Era." Debater B successfully pinpointed the flaw: the Mesozoic spans 180 million years, and these two lived in different periods (Jurassic vs. Cretaceous). The Judge correctly identified Debater B's temporal evidence as the "Strongest Argument" and reversed the initial plausible but wrong conclusion.
-
-### Theoretical Connections (Irving et al., 2018)
-Our findings support Irving et al.'s prediction that debate can help a human (or judge LLM) evaluate claims they aren't experts in. However, we observed that when both agents are "factually impoverished," they tend to reinforce each other's errors—a phenomenon we term **"Hallucination Convergence."**
+### Subjective Difficulty vs. Disagreement
+Interestingly, we observed a **Disagreement Score of 1.0** on questions categorized as "Easy" (e.g., survival on Mars), while consensus was higher on "Hard" questions. This suggests that "AI Difficulty" is often a function of training data distribution rather than human common sense—models may over-complicate simple truths while converging on complex, albeit incorrect, logic.
 
 ---
 
-## 4. Prompt Engineering
+## 3. Qualitative Analysis & Theoretical Framework
 
-### Design Process & Iterations
-The prompt design underwent three major iterations:
-1.  **Iteration 1 (Generic)**: Initial prompts just asked the agents to "debate." This resulted in polite agreement rather than rigorous challenge.
-2.  **Iteration 2 (Role Framing)**: We added explicit "Proponent" and "Opponent" personas. Debater B was instructed to "identify specific logical flaws." This significantly improved the adversarial nature of Phase 2.
-3.  **Iteration 3 (Format Constraints)**: We found the Judge often gave long-winded answers without a clear binary choice. We implemented a strict output constraint: `Finally state your answer in exactly this format: 'Answer is yes' or 'Answer is no'`. This allowed for automated evaluation.
+### Case Studies
+**Case 1: Adversarial Collapse (Roman vs. Mayan)**
+In `debate_0.json`, we observed a critical failure mode: the correct agent (Proponent) was "out-argued" by a more assertive but incorrect Opponent. Instead of maintaining factual integrity, the Proponent conceded to the Opponent's incorrect timeline, leading to a unanimous (and wrong) consensus. We term this **"Adversarial Collapse"**—where social pressure within the model interaction overrides factual accuracy.
 
-### Key Decisions
-*   **CoT Instructions**: Every prompt includes "Use Chain-of-Thought reasoning." This was critical for the Judge to weigh the *logic* of the arguments rather than just the *confidence* of the tone.
-*   **Deliberation Framing**: For the Jury, we used a two-step prompt. Step 1: Independent verdict. Step 2: "Has your position changed based on your peers?" This second step allowed for the "deliberation" required by the bonus prompt.
+**Case 2: Logic-Fact Decoupling (T-Rex vs. Stegosaurus)**
+In `debate_4.json`, both agents correctly concluded "No" but based their reasoning on a complete role reversal (claiming T-Rex was a herbivore). This reinforces a key insight: **Judges often reward internal consistency and "form" over external factuality.** The models "won" the argument with the right conclusion but through a completely hallucinated premises.
 
-### Tools and Academic Integrity
-This project was developed using **Cursor IDE** and **Gemini-3-flash-preview** as a coding assistant. These tools were used for generating boilerplate code, modularizing the directory structure, and drafting the initial technical descriptions in this report. All reasoning logic, prompt templates, and qualitative analysis were verified and refined by the author to ensure alignment with assignment requirements.
+### Core Observations
+1.  **Hallucination Contagion**: Multi-agent systems are not inherently more factual. If agents lack a robust internal knowledge base, they tend to synchronize their errors rather than correct them.
+2.  **Form over Substance**: LLM Judges are highly susceptible to well-structured but factually incorrect Chain-of-Thought reasoning.
+3.  **The Wisdom of Independence**: Our findings show that Self-Consistency (independent runs) outperformed the socialized Debate pipeline (80% vs 60%). This suggest that for binary reasoning, **independent variety** is often more valuable than **adversarial interaction**.
 
 ---
 
-## Appendix: Full Prompts
+## 4. Prompt Engineering & Design Strategy
 
-### Debater A (Proponent) - Initialization
-```
-You are Debater A (Proponent). 
-The question is: {question}
-Your goal is to argue in favor of a specific answer to this question. 
-State your initial position clearly, provide a brief logical reasoning for your position, and finally state your answer in exactly this format: 'Answer is yes' or 'Answer is no'.
-```
+### Iterative Design
+The prompts were refined through several development cycles:
+1.  **Initial (Naive)**: Simply asked for a "debate," which led to excessive politeness and lack of critical engagement.
+2.  **Persona-Driven (Adversarial)**: Assigned explicit "Opponent" roles with instructions to "expose logical fallacies." This significantly increased the rigor of the Phase 2 rebuttals.
+3.  **Constraint-Optimized (Evaluation)**: Implemented strict formatting (e.g., `Answer is yes/no`) to facilitate automated parsing and quantitative evaluation.
 
-### Debater B (Opponent) - Round Rebuttal
-```
+### Academic Integrity & Tooling
+This project was developed using **Cursor IDE** and **Gemini-3-flash-preview**. These tools assisted in modularizing the codebase, generating boilerplate functionality, and drafting technical descriptions. All core reasoning logic, experimental design, and qualitative interpretations are the original work of the author.
+
+---
+
+## Appendix: Core Prompt Templates
+
+### Debater B (Opponent) - Rebuttal Logic
+```text
 You are Debater B (Opponent). 
 Question: {question}
-Current Debate Transcript: {transcript}
+Current Transcript: {transcript}
 
-Your primary goal is to argue against Debater A's position. As the Opponent, you MUST:
-1. Identify specific logical flaws or factual errors in Debater A's reasoning.
-2. Present counterevidence to refute Debater A's claims.
-3. Defend your own position and explain why it is more likely to be correct.
+Your goal is to challenge Debater A. You MUST:
+1. Identify specific logical flaws or factual errors in A's reasoning.
+2. Present counterevidence to refute their claims.
+3. Defend your position with Chain-of-Thought logic.
+Finalize with: 'Answer is yes' or 'Answer is no'.
 ```
 
-### Jury Deliberation Prompt
-```
-You are Juror {juror_id} in a 3-member judicial panel. 
-You have seen the debate, and now you can see the initial verdicts of your fellow jurors.
-Reflect on their reasoning. Has your position changed? 
-Provide your final, definitive verdict and conclude with exactly 'Answer is yes' or 'Answer is no'.
+### Jury Deliberation Logic
+```text
+You are Juror {juror_id}. You have reviewed the debate and the initial verdicts of your peers.
+Reflect on their reasoning. Has your position shifted? 
+Provide your final verdict and conclude with: 'Answer is yes' or 'Answer is no'.
 ```
